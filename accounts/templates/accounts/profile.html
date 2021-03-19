@@ -1,0 +1,20 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    
+    <div class="pros">
+        <div class="pro1" >
+            <img src="{{ pro.displayphoto.url }}" alt="dp" >
+            <div class="ak" style="padding: 2rem; text-align: start;">
+                <p>displayname:  <span  > {{pro.fullname}} </span> ({{pro.displayname}}) </p>
+                <p>mobile:<span>{{pro.mobile}}</span></p>
+                <p>dob:<span>{{pro.dob}}</span></p>
+                <p>email:<span>{{pro.email}}</span></p>
+                <p>bio:<span>{{pro.bio}}</span></p>
+                <a id="ak1"  href="{% url 'accounts:profile2' fullname=user.username  %}">edit</a>
+               
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

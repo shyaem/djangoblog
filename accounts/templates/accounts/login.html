@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="ap1">
+    <form class="form-site" id="jd1" action="{% url 'accounts:login' %}" method="POST">
+        {% csrf_token %}
+        <h3 style="text-align: center;">Login</h3>
+        {{form}}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+        <input type="submit" value="login">
+    </form>
+    <P style="text-align: center;">New To Page:&nbsp;  <a href="{% url 'accounts:signup' %}">signup!</a></P>
+    </div>
+{% endblock %}

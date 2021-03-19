@@ -1,0 +1,20 @@
+{% if user.is_authenticated %}
+
+
+  <div  class="intro">
+      <div class="intro-text">
+        <h1 class="hide">
+          
+          <span class="text">Hello &nbsp; {{user.username}}</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text">Dawnblog welcomes</span>
+        </h1>
+        <h1 class="hide">
+          <span class="text">you!</span>
+        </h1>
+      </div>
+  </div>
+  <div class="slider"></div>
+
+{% endif %}

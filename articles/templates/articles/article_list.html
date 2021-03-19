@@ -1,0 +1,34 @@
+
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    
+    
+    {% if now|timesince == user.last_login|timesince %}
+        {% include 'articles/sample.html' %}
+    {% endif %}
+    <!--{% if now|timesince:user.last_login%}
+        {{now|timesince:user.last_login}}
+        <h1>hi</h1>
+    {% endif %}
+    !-->
+    <div id="pl" onload="myfunc()">
+        <ul style="display: flex;justify-content: space-between;list-style: none; padding: 1.5rem 2rem;">
+            <li style="font-size: 1.7rem;font-family:'Lobster',cursive"  >DawnBlog</li>
+            <li onclick="pop()"><i  style = "font-size:1.3rem;position: absolute;top: 5%;right: 5%;cursor: pointer;" class="fas fa-info-circle"><span style="font-weight: 400;font-size: 1.2rem;font-family:'Lobster',cursive" "> About</span></i></li>
+        </ul>
+        <div class="articles" >
+            {% for article in articles %}
+                <div class="article" >
+                    <img src="{{article.photo.url}}" alt="img">
+                    <div class="text3">
+                        <h1>{{article.title}}</h1>
+                        <p>{{article.snippet}}</p>
+                        <a id="ak" href="{% url 'articles:detail' subject=article.subject  %}">read more</a>
+                        <a href="{% url 'accounts:profile3' fullname=article.author.username  %}">by {{article.author.username}}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

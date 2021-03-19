@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <div class="ap4">
+    <form class="profileForm" action="{% url 'accounts:profile1' fullname=user.username  %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Create Your Profile</h3>
+        <p>let people know who actually you are.</p>
+        {{form}}
+        <input type="submit" value="submit">
+    </form>
+    </div>
+{% endblock %}
